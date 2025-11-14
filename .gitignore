@@ -1,0 +1,18 @@
+# OS / éditeurs
+.DS_Store
+.vscode/
+.idea/
+
+# Local by Flywheel / Local
+app/sql/
+logs/
+
+# WordPress
+wp-content/cache/
+wp-content/uploads/
+wp-content/upgrade/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
