@@ -3,3 +3,224 @@
  Template: hello-elementor
  Version: 1.0
 */
+
+/* ============================================================
+                       CHAMPS QUANTITÉ 
+   ============================================================ */
+
+.qty-input{
+  width: 56px;                
+  height: 56px;
+  box-sizing: border-box;      
+
+  font-size: 16px !important;  
+  font-weight: 600;
+  line-height: 56px !important;
+
+  text-align: center !important;
+  padding: 0 6px !important;   
+
+  background: #ffffff;
+  border: none !important;
+  border-radius: 0 !important; 
+  outline: none !important;    
+  padding: 0;
+  box-shadow: none !important;  
+}
+
+/* Enlève les flèches */
+.qty-input::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ============================================================
+                            CF7 
+   ============================================================ */
+
+/* --- RESET DU STYLE GLOBAL --- */
+
+.wpcf7-form br { display:none !important; }
+.wpcf7-form p  { margin:0 !important; padding:0 !important; }
+
+/* I) STYLE DES CHAMPS (COMMUN AUX 2 FORMULAIRES) */
+
+/* Labels */
+
+.wpcf7-form label{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;               /* espace label -> champ */
+  margin: 10px 0 !important;        /* espace entre champs */
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Le span CF7 qui wrap l’input doit prendre toute la largeur */
+.wpcf7-form .wpcf7-form-control-wrap{
+  display:block !important;
+  width:100% !important;
+}
+
+/* Inputs + textarea */
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea{
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  background:#fff;
+  border:none !important;
+  border-radius:7px;
+  padding:14px 16px;
+  font-size:16px;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  outline:none !important;
+  margin:0 !important;
+}
+
+/* Hauteur des champs */
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"]{
+  height:71px;
+}
+
+/* Zone message */
+
+.wpcf7-form textarea{
+  min-height:240px;
+  resize:vertical;
+}
+
+/* Bouton CF7 (commun) */
+
+.wpcf7-form .wpcf7-submit{
+  display:block !important;
+  margin:40px auto 0 !important;
+  width:220px !important;
+  height:55px !important;
+  padding:0 !important;
+
+  background:#D7B7B1;
+  color:#fff;
+  border:none !important;
+  border-radius:7px;
+
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.wpcf7-form .wpcf7-submit:hover{
+  filter:brightness(0.97);
+}
+
+
+/* II) FORMULAIRE CONTACT (1 COLONNE) */
+
+/* On limite la largeur */
+
+.wpcf7-form .planty-form:not(.planty-form--order){
+  max-width:383px;
+  margin:0 auto;
+}
+
+
+/* III) FORMULAIRE COMMANDER (2 COLONNES) */
+
+/* On débride ce bloc (il vit dans le form CF7, pas l’inverse) */
+
+.wpcf7-form .planty-form--order{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* Grille 2 colonnes */
+
+.wpcf7-form .planty-form--order .planty-grid-2{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:80px !important;
+  position:relative;
+  align-items:start;
+}
+
+/* Ligne verticale centrale */
+
+.wpcf7-form .planty-form--order .planty-grid-2::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:1px;
+  background:rgba(255,255,255,.65);
+  transform:translateX(-50%);
+}
+
+/* Titres colonnes */
+
+.wpcf7-form .planty-form--order h3{
+  font-size:28px;
+  font-weight:700;
+  margin:0 0 30px;
+  color:#fff;
+}
+
+/* Labels blancs */
+
+.wpcf7-form .planty-form--order label{
+  color:#fff;
+}
+
+/* Le bouton Commander sous la grille */
+
+.wpcf7-form .planty-form--order .wpcf7-submit{
+  margin:40px auto 0 !important;
+}
+
+
+/* IV) RESPONSIVE */
+
+/* Commander passe en 1 colonne */
+
+@media (max-width:900px){
+  .wpcf7-form .planty-form--order{
+    max-width:90%;
+  }
+
+  .wpcf7-form .planty-form--order .planty-grid-2{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+
+  .wpcf7-form .planty-form--order .planty-grid-2::after{
+    display:none !important;
+  }
+
+  .wpcf7-form .planty-form--order h3{
+    font-size:24px;
+    text-align:center;
+  }
+}
+
+@media (max-width:768px){
+  .wpcf7-form input[type="text"],
+  .wpcf7-form input[type="email"]{
+    height:64px;
+  }
+
+  .wpcf7-form .wpcf7-submit{
+    width:200px !important;
+  }
+}
